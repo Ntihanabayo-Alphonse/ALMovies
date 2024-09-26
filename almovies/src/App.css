@@ -8,7 +8,7 @@
 }
 
 .banner_img {
-  background: linear-gradient(rgba(0, 0, 128, .7), rgba(0, 0, 128, .7)), url(../public/images/banner_img.jpg);
+  background: linear-gradient(#000435b3, #000435b3), url(../public/images/banner_img.jpg);
   height: 100%;
   background-size: cover;
   background-position: center;
