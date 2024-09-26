@@ -16,6 +16,7 @@ const SearchBar = ({ setMovieData }) => {
         try {
             const data = await fetchMovieData({title});
             setMovieData(data.Search)
+            setTitle('')
         } catch (error) {
             console.error(error)
         }
