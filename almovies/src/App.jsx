@@ -6,13 +6,22 @@ import { useState } from 'react';
 import SearchBar from './components/SearchBar';
 
 function App() {
-  const [ movieData, setMovieData ] = useState([]);
+  const [movieData, setMovieData] = useState([]);
 
   return (
     <>
-      <SearchBar setMovieData={setMovieData} />
-      {/* <Home /> */}
-      <MovieCard movieData={movieData}  />
+      <Router>
+        <Routes>
+          <Route path='/' element={(
+            <>
+              <SearchBar setMovieData={setMovieData} />
+              {/* <Home /> */}
+              <MovieCard movieData={movieData} />
+            </>
+          )} />
+          {/* <Route path='/' element={<MovieCard movieData={movieData} />} /> */}
+        </Routes>
+      </Router>
     </>
   )
 }
