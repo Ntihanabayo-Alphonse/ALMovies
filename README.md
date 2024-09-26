@@ -64,7 +64,7 @@
 <details>
 <summary>Database</summary>
   <ul>
-    <li>OMDB API</li>
+    <a href="https://www.omdbapi.com/" target="_blank"><li>OMDB API</li></a>
   </ul>
 </details>
 
