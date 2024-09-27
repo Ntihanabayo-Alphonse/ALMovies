@@ -14,11 +14,18 @@ function App() {
         <Routes>
           <Route path='/' element={(
             <>
-              <SearchBar setMovieData={setMovieData} />
-              {/* <Home /> */}
+              <SearchBar movieData={movieData} setMovieData={setMovieData} />
+              <Home />
+              {/* <MovieCard movieData={movieData} /> */}
+            </>
+          )} />
+          <Route path='/movies' element={(
+            <>
+              <SearchBar movieData={movieData} setMovieData={setMovieData} />
               <MovieCard movieData={movieData} />
             </>
           )} />
+
           {/* <Route path='/' element={<MovieCard movieData={movieData} />} /> */}
         </Routes>
       </Router>
