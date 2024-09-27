@@ -8,7 +8,7 @@
 }
 
 .banner_img {
-  background: linear-gradient(#000435b3, #000435b3), url(../public/images/banner_img.jpg);
+  background: linear-gradient(#000435b3, #000435b3), url(/images/banner_img.jpg);
   height: 100%;
   background-size: cover;
   background-position: center;
@@ -23,4 +23,12 @@
 
 .banner_heading {
   font-family: "Black Han Sans", sans-serif;
+}
+
+/* Error Page */
+.error_page_bg {
+  background: linear-gradient(90deg, #000435ca, #000080ca, #000435ca), url(/images/banner_img.jpg);
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
