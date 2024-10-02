@@ -23,7 +23,6 @@ const SearchBar = ({ movieData, setMovieData }) => {
             const data = await fetchMovieData({ title });
             setMovieData(data.Search)
             setTitle('')
-            console.log(movieData)
         } catch (error) {
             setError("COULDN'T FIND YOUR SEARCH!!!")
         } finally {
@@ -33,7 +32,6 @@ const SearchBar = ({ movieData, setMovieData }) => {
 
     return (
         <>
-            {/* {loading && <p className='bg-black'>Loading...</p>} */}
             {loading && (
                 <div className='error_page h-full'>
                     <div className="error_page_bg"></div>
@@ -64,9 +62,9 @@ const SearchBar = ({ movieData, setMovieData }) => {
                         value={title}
                         className="py-[6px] px-4 bg-transparent border rounded-lg border-[#dddddd6b] w-full sm:w-auto outline-none"
                     />
-                    <Link to={'./movies'}>
+                    {/* <Link to={'./movies'}> */}
                         <button type="submit" className="bg-white w-full sm:w-auto py-[6px] border-none cursor-pointer text-center rounded-lg text-[#000080] font-bold text-lg my-2 sm:px-5 sm:ml-3">Search</button>
-                    </Link>
+                    {/* </Link> */}
 
                 </form>
             </nav>
