@@ -4,6 +4,7 @@ import Home from './components/Home';
 import MovieCard from './components/MovieCard';
 import { useState } from 'react';
 import SearchBar from './components/SearchBar';
+import MovieDetails from './components/MovieDetails';
 
 function App() {
   const [movieData, setMovieData] = useState([]);
@@ -12,13 +13,13 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={(
+          {/* <Route path='/' element={(
             <>
               <SearchBar movieData={movieData} setMovieData={setMovieData} />
               <Home />
-              {/* <MovieCard movieData={movieData} /> */}
+              <MovieCard movieData={movieData} />
             </>
-          )} />
+          )} /> */}
           <Route path='/movies' element={(
             <>
               <SearchBar movieData={movieData} setMovieData={setMovieData} />
@@ -26,7 +27,12 @@ function App() {
             </>
           )} />
 
-          {/* <Route path='/' element={<MovieCard movieData={movieData} />} /> */}
+          <Route path='/movies/:imdbID' element={(
+            <>
+              <SearchBar movieData={movieData} setMovieData={setMovieData} />
+              <MovieDetails movieData={movieData} />
+            </>
+          )} />
         </Routes>
       </Router>
     </>
