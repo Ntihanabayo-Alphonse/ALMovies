@@ -7,6 +7,7 @@
   color: white;
 }
 
+/* Home page banner */
 .banner_img {
   background: linear-gradient(#000435b3, #000435b3), url(/images/banner_img.jpg);
   height: 100%;
@@ -14,15 +15,23 @@
   background-position: center;
 }
 
-/* .movie_bg {
-  background: linear-gradient(rgba(0, 0, 128, .7), #000080, rgba(0, 0, 128, .7)), url(../public/images/banner_img.jpg);
+/* MovieCard Banner */
+.movie_bg {
+  background: linear-gradient(90deg, #000435ca, #000080ca, #000435ca), url(/images/banner_img.jpg);
   height: 100%;
   background-size: cover;
   background-position: center;
-} */
+}
 
 .banner_heading {
   font-family: "Black Han Sans", sans-serif;
+}
+
+.detail_banner {
+  background: linear-gradient(90deg, #000435ca, #000080ca, #000435ca), url(/images/banner_img.jpg);
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 /* Error Page */
@@ -31,4 +40,9 @@
   height: 100%;
   background-size: cover;
   background-position: center;
+}
+
+.gradient-overlay {
+  background: linear-gradient(90deg, #000435, #000080, #000435ca);
+
 }
