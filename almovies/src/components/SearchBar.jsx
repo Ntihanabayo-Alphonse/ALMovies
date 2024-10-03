@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import fetchMovieData from '../getMovies';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { animateScroll as scroll } from "react-scroll"
 
 // SearchBar Component
-const SearchBar = ({ setMovieData }) => {
-    const [title, setTitle] = useState('')
-    const [loading, setLoading] = useState(false);
-    const [err, setError] = useState('')
+const SearchBar = ({ setMovieData, err, setError }) => {
+    const [ title, setTitle ] = useState('')
+    const [ loading, setLoading ] = useState(false);
     const navigate = useNavigate()
     const location = useLocation()
+    const [ scrolling, setScrolling ] = useState(false)
 
 
 
@@ -36,6 +37,19 @@ const SearchBar = ({ setMovieData }) => {
         }
     }
 
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+    const handleScroll = () => {
+        if (window.scrollY > 20) {
+            setScrolling(true)
+        } else {
+            setScrolling(false)
+        }
+    }
+
     return (
         <>
             {loading && (
@@ -56,7 +70,7 @@ const SearchBar = ({ setMovieData }) => {
                 </div>
             )}
 
-            <nav className="border-b-[#dddddd6b] border-b flex justify-between items-center flex-col sm:flex-row py-1 px-10 sm:px-12 fixed w-full top-0 z-10 md:px-24">
+            <nav className={scrolling ? 'bg-[#000435] flex justify-between items-center flex-col sm:flex-row py-1 px-10 sm:px-12 fixed w-full top-0 z-10 md:px-24' : "border-b-[#dddddd6b] border-b flex justify-between items-center flex-col sm:flex-row py-1 px-10 sm:px-12 fixed w-full top-0 z-10 md:px-24"}>
                 <div className="image w-14 h-14">
                     <Link to="/"><img className="w-full h-full object-cover" src="/images/ALMovies_Logo.png" alt="ALMovies Logo" /></Link>
                 </div>
