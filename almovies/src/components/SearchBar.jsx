@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import fetchMovieData from '../getMovies';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 // SearchBar Component
-const SearchBar = ({ movieData, setMovieData }) => {
+const SearchBar = ({ setMovieData }) => {
     const [title, setTitle] = useState('')
     const [loading, setLoading] = useState(false);
     const [err, setError] = useState('')
+    const navigate = useNavigate()
+    const location = useLocation()
 
 
 
@@ -27,6 +29,10 @@ const SearchBar = ({ movieData, setMovieData }) => {
             setError("COULDN'T FIND YOUR SEARCH!!!")
         } finally {
             setLoading(false)
+        }
+
+        if (location.pathname !== '/movies') {
+            navigate('/movies');
         }
     }
 
@@ -62,10 +68,7 @@ const SearchBar = ({ movieData, setMovieData }) => {
                         value={title}
                         className="py-[6px] px-4 bg-transparent border rounded-lg border-[#dddddd6b] w-full sm:w-auto outline-none"
                     />
-                    {/* <Link to={'./movies'}> */}
-                        <button type="submit" className="bg-white w-full sm:w-auto py-[6px] border-none cursor-pointer text-center rounded-lg text-[#000080] font-bold text-lg my-2 sm:px-5 sm:ml-3">Search</button>
-                    {/* </Link> */}
-
+                    <button type="submit" className="bg-white w-full sm:w-auto py-[6px] border-none cursor-pointer text-center rounded-lg text-[#000080] font-bold text-lg my-2 sm:px-5 sm:ml-3">Search</button>
                 </form>
             </nav>
         </>
