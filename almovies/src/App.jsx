@@ -6,15 +6,17 @@ import { useState } from 'react';
 import MovieDetails from './components/MovieDetails';
 
 function App() {
-  let [movieData, setMovieData] = useState([]);
+  const [movieData, setMovieData] = useState([]);
+  const [ err, setError ] = useState('')
+
 
   return (
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<Home movieData={movieData} setMovieData={setMovieData} />} />
-          <Route path='/movies' element={<MovieCard movieData={movieData} setMovieData={setMovieData} />} />
-          <Route path='/movies/:imdbID' element={<MovieDetails movieData={movieData} setMovieData={setMovieData} />} />
+          <Route path='/' element={<Home movieData={movieData} setMovieData={setMovieData} err={err} setError={setError} />} />
+          <Route path='/movies' element={<MovieCard movieData={movieData} setMovieData={setMovieData} err={err} setError={setError} />} />
+          <Route path='/movies/:imdbID' element={<MovieDetails movieData={movieData} setMovieData={setMovieData} err={err} setError={setError} />} />
         </Routes>
       </Router>
     </>
