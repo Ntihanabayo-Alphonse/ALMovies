@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import SearchBar from './SearchBar'
 
-const MovieDetails = ({ movieData }) => {
+const MovieDetails = ({ movieData, setMovieData }) => {
     const [detail, setDetail] = useState(null)
     const { imdbID } = useParams();
     const movie = movieData.find(movie => movie.imdbID === imdbID)
@@ -27,6 +28,7 @@ const MovieDetails = ({ movieData }) => {
 
     return (
         <>
+            <SearchBar setMovieData={setMovieData} />
             <div className='banner h-full relative'>
                 <div className="detail_banner -z-10"></div>
                 <div key={detail?.imdbID} className='detail_card absolute left-1/2 -translate-x-1/2 -translate-y-1/2 h-[70%] w-[75%] sm:top-[55%] rounded-xl'>
