@@ -19,7 +19,7 @@ const MovieCard = ({ movieData, setMovieData }) => {
                                         <img src={movie.Poster} alt="Movie Poster" className='w-full h-full object-cover' />
                                     </div>
                                     <div className="movie_txt absolute bottom-0 left-0 px-5 bg-[rgba(0,0,0,0.4)] w-full py-4">
-                                        <h3 className='font-bold text-[17px]'>{movie.Title}</h3>
+                                        <h3 className='font-bold text-[17px] text-white'>{movie.Title}</h3>
                                         <p className='font-bold text-sm'>{movie.Year}</p>
                                     </div>
                                 </div>
