@@ -3,19 +3,19 @@ import SearchBar from './SearchBar'
 import '../App.css'
 import { Link } from 'react-router-dom'
 
-const MovieCard = ({ movieData, setMovieData }) => {
+const MovieCard = ({ movieData, setMovieData, err, setError }) => {
     // bg-gradient-to-b from-[#00043566] via-[#00008066] to-[#00043566]
 
     return (
         <>
             <SearchBar setMovieData={setMovieData} />
-            {movieData && (
+            {movieData ? (
                 <div className='movie_bg relative'>
                     <div className='movie_container absolute left-0 w-full min-h-full px-8 sm:px-16 pt-48 sm:pt-28 pb-16 grid xl:grid-cols-4 xl:px-10 lg:px-20 md:px-6 gap-4 lg:grid-cols-3 md:grid-cols-2'>
                         {movieData.map(movie => (
                             <Link to={`/movies/${movie.imdbID}`} >
                                 <div key={movie.imdbID} className="movie_card my-0 mx-auto relative  max-[400px]:w-[270px] w-[340px] lg:w-[270px] h-[400] rounded-lg overflow-hidden">
-                                    <div className="movie_image max-[400px]:w-[270px] w-[340px] lg:w-[270px] h-[400] rounded-lg bg-green-700">
+                                    <div className="movie_image max-[400px]:w-[270px] w-[340px] lg:w-[270px] h-[400] rounded-lg">
                                         <img src={movie.Poster} alt="Movie Poster" className='w-full h-full object-cover' />
                                     </div>
                                     <div className="movie_txt absolute bottom-0 left-0 bg-[rgba(0,0,0)] w-full">
@@ -30,7 +30,13 @@ const MovieCard = ({ movieData, setMovieData }) => {
 
                     </div>
                 </div>
-            )}
+            ) : (<div className='error_page h-full'>
+                    <div className="error_page_bg"></div>
+                    <div className="err_container w-1/2 h-40 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 shadow-[2px_3px_6px_5px_rgba(221,221,221,0.42)] rounded-lg flex justify-center items-center p-2">
+                        <p className='font-bold font-[philosopher] text-lg inline-block'>{err}</p>
+                    </div>
+                </div>)
+            }
         </>
     )
 }
