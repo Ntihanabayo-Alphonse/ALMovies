@@ -14,9 +14,9 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<Home movieData={movieData} setMovieData={setMovieData} err={err} setError={setError} />} />
-          <Route path='/movies' element={<MovieCard movieData={movieData} setMovieData={setMovieData} err={err} setError={setError} />} />
-          <Route path='/movies/:imdbID' element={<MovieDetails movieData={movieData} setMovieData={setMovieData} err={err} setError={setError} />} />
+          <Route path='/' element={<Home movieData={movieData} setMovieData={setMovieData} err={"COULDN'T FIND YOUR SEARCH"} setError={setError} />} />
+          <Route path='/movies' element={<MovieCard movieData={movieData} setMovieData={setMovieData} err={"COULDN'T FIND YOUR SEARCH"} setError={setError} />} />
+          <Route path='/movies/:imdbID' element={<MovieDetails movieData={movieData} setMovieData={setMovieData} err={"COULDN'T FIND YOUR SEARCH"} setError={setError} />} />
         </Routes>
       </Router>
     </>
