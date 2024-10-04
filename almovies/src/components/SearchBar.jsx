@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import fetchMovieData from '../getMovies';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { animateScroll as scroll } from "react-scroll"
 
 // SearchBar Component
-const SearchBar = ({ setMovieData, err, setError }) => {
+const SearchBar = ({ setMovieData, setError }) => {
     const [ title, setTitle ] = useState('')
     const [ loading, setLoading ] = useState(false);
     const navigate = useNavigate()
@@ -27,7 +26,7 @@ const SearchBar = ({ setMovieData, err, setError }) => {
             setMovieData(data.Search)
             setTitle('')
         } catch (error) {
-            setError("COULDN'T FIND YOUR SEARCH!!!")
+            setError("FAILURE TO FETCH!!!")
         } finally {
             setLoading(false)
         }
@@ -53,19 +52,10 @@ const SearchBar = ({ setMovieData, err, setError }) => {
     return (
         <>
             {loading && (
-                <div className='error_page h-full'>
-                    <div className="error_page_bg"></div>
-                    <div className="err_container w-10/12 sm:w-1/2 h-40 absolute top-2/3 sm:top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 shadow-[2px_3px_6px_5px_rgba(221,221,221,0.42)] rounded-lg flex justify-center items-center p-2">
+                <div className='loading_page h-full'>
+                    <div className="loading_page_bg"></div>
+                    <div className="loading_container w-10/12 sm:w-1/2 h-40 absolute top-2/3 sm:top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 shadow-[2px_3px_6px_5px_rgba(221,221,221,0.42)] rounded-lg flex justify-center items-center p-2">
                         <p className='font-bold font-[philosopher] text-lg inline-block'>LOADING...</p>
-                    </div>
-                </div>
-            )}
-
-            {err && (
-                <div className='error_page h-full'>
-                    <div className="error_page_bg"></div>
-                    <div className="err_container w-10/12 sm:w-1/2 h-40 absolute top-2/3 sm:top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 shadow-[2px_3px_6px_5px_rgba(221,221,221,0.42)] rounded-lg flex justify-center items-center p-2">
-                        <p className='font-bold font-[philosopher] text-lg inline-block'>{err}</p>
                     </div>
                 </div>
             )}
