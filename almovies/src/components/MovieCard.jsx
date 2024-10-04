@@ -3,11 +3,15 @@ import SearchBar from './SearchBar'
 import '../App.css'
 import { Link } from 'react-router-dom'
 
+// MovieCard component
 const MovieCard = ({ movieData, setMovieData, err}) => {
 
     return (
         <>
+        {/* Import Reusable SearchBar Component */}
             <SearchBar setMovieData={setMovieData} />
+
+            {/* Display the movie cards if the movieData is available and throw an error otherwise */}
             {movieData ? (
                 <div className='movie_bg relative'>
                     <div className='movie_container absolute left-0 w-full min-h-full px-8 sm:px-16 pt-48 sm:pt-28 pb-16 grid xl:grid-cols-4 xl:px-10 lg:px-20 md:px-6 gap-4 lg:grid-cols-3 md:grid-cols-2'>

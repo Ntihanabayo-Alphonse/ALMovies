@@ -34,7 +34,7 @@
   background-position: center;
 }
 
-/* Error Page */
+/* Error and Loading Page */
 .error_page_bg, .loading_page_bg {
   background: linear-gradient(90deg, #000435ca, #000080ca, #000435ca), url(/images/banner_img.jpg);
   min-height: 100vh;

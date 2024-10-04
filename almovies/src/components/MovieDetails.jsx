@@ -2,28 +2,32 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SearchBar from './SearchBar'
 
+// Movie details component 
 const MovieDetails = ({ movieData, setMovieData }) => {
     const [detail, setDetail] = useState(null)
     const { imdbID } = useParams();
     const movie = movieData.find(movie => movie.imdbID === imdbID)
 
+    // Fetch movie details using a unique imdbID of the card
     const fetchMovieDetails = async () => {
-
         const movieApiKey = import.meta.env.VITE_OMDB_API_KEY;
         const url = `https://www.omdbapi.com/?i=${movie?.imdbID}&apikey=${movieApiKey}`;
-
         const response = await fetch(url);
         const data = await response.json();
         setDetail(data)
     }
 
+    // Call or import the fetched movie details
     useEffect(() => {
             fetchMovieDetails()
     }, [])
 
     return (
         <>
+        {/* Import Reusable SearchBar Component */}
             <SearchBar setMovieData={setMovieData} />
+
+            {/* Display the clicked movie card details depending on imdbID of the card */}
             <div className='detail_banner relative'>
                 <div key={detail?.imdbID} className='detail_card absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-[100%]  sm:h-[80%] md:h-[75%] sm:w-[95%] md:w-[80%]  xl:h-[70%] xl:w-[75%] sm:top-[55%] rounded-xl font-bold'>
                     <div className="detail_background w-full h-full relative rounded-xl max-[640px]:min-h-[190%]">

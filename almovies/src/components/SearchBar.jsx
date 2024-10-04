@@ -11,12 +11,13 @@ const SearchBar = ({ setMovieData, setError }) => {
     const [ scrolling, setScrolling ] = useState(false)
 
 
-
+// Handle change in the input search bar
     const handleChange = (e) => {
         const inputValue = e.target.value;
         setTitle(inputValue);
     }
 
+// Submit the form to fetch data
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true)
@@ -31,16 +32,19 @@ const SearchBar = ({ setMovieData, setError }) => {
             setLoading(false)
         }
 
+        // If not on /movies, navigate to it
         if (location.pathname !== '/movies') {
             navigate('/movies');
         }
     }
 
+    // Handle the scroll event on the window
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    // The scroll handling function on the y-axis
     const handleScroll = () => {
         if (window.scrollY > 20) {
             setScrolling(true)
@@ -51,6 +55,7 @@ const SearchBar = ({ setMovieData, setError }) => {
 
     return (
         <>
+        {/* Loading screen if the data is being fetched */}
             {loading && (
                 <div className='loading_page h-full'>
                     <div className="loading_page_bg"></div>
@@ -60,10 +65,12 @@ const SearchBar = ({ setMovieData, setError }) => {
                 </div>
             )}
 
+            {/* Navigation bar */}
             <nav className={scrolling ? 'bg-[#000435] flex justify-between items-center flex-col sm:flex-row py-1 px-10 sm:px-12 fixed w-full top-0 z-10 md:px-24' : "border-b-[#dddddd6b] border-b flex justify-between items-center flex-col sm:flex-row py-1 px-10 sm:px-12 fixed w-full top-0 z-10 md:px-24"}>
                 <div className="image w-14 h-14">
                     <Link to="/"><img className="w-full h-full object-cover" src="/images/ALMovies_Logo.png" alt="ALMovies Logo" /></Link>
                 </div>
+                {/* Submission Form */}
                 <form className="w-full sm:w-auto" onSubmit={handleSubmit}>
                     <input
                         type="text"

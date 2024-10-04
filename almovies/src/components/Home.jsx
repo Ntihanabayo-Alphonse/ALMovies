@@ -1,10 +1,14 @@
 import '../App.css'
 import SearchBar from './SearchBar'
 
+// Home component
 const Home = ({ setMovieData }) => {
   return (
     <>
+        {/* Import Reusable SearchBar Component */}
         <SearchBar setMovieData={setMovieData} />
+
+        {/* The structure and styles of the Home component */}
         <div className='banner h-full relative'>
             <div className="banner_img"></div>
             <div className="banner_details absolute top-2/3 sm:top-[55%] left-1/2 -translate-y-1/2 -translate-x-1/2 w-full text-center px-4">
