@@ -44,5 +44,12 @@
 
 .gradient-overlay {
   background: linear-gradient(90deg, #000435, #000080, #000435ca);
+}
 
+/* Responsiveness */
+@media (max-width: 640px) {
+  .gradient-overlay {
+    background: linear-gradient(#000435, #000080, #000435ca);
+    height: 200%;
+  }
 }
