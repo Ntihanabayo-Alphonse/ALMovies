@@ -6,7 +6,6 @@ const MovieDetails = ({ movieData, setMovieData }) => {
     const [detail, setDetail] = useState(null)
     const { imdbID } = useParams();
     const movie = movieData.find(movie => movie.imdbID === imdbID)
-    console.log(movie)
 
     const fetchMovieDetails = async () => {
 
@@ -19,12 +18,8 @@ const MovieDetails = ({ movieData, setMovieData }) => {
     }
 
     useEffect(() => {
-        // if(imdbID) {
             fetchMovieDetails()
-        // }
     }, [])
-
-    // console.log(detail)
 
     return (
         <>
@@ -39,7 +34,7 @@ const MovieDetails = ({ movieData, setMovieData }) => {
                         <div className="details-img h-full w-full sm:w-[85%] md:w-[75%] xl:w-[55%] max-[640px]:rounded-xl overflow-hidden">
                             <img src={detail?.Poster} alt="" className='h-full object-cover w-full' />
                         </div>
-                        <div className="detail_info py-6 px-6 w-full sm:w-[60%] xl:w-[70%] sm:h-full sm:absolute sm:right-0">
+                        <div className="detail_info py-6 px-6 w-full sm:w-[60%] xl:w-[70%] sm:h-full sm:absolute sm:right-0 sm:overflow-y-auto">
                             <h3 className='font-bold text-3xl font-[philosopher] text-white max-[400px]:text-2xl'>{detail?.Title}</h3>
                             <p className='font-bold mb-8 text-[rgba(221,221,221,0.6)]'>{detail?.Year}</p>
                             <p>{detail?.Genre}</p>
