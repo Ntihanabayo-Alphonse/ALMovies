@@ -83,7 +83,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- Not deployed
+- [Run the app](https://al-movies.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
